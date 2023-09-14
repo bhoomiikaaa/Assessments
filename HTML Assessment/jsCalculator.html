@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Simple Calculator</h1>
+
+    <p>Enter two numbers:</p>
+    <input type="text" id="num1" placeholder="Enter first number">
+    <input type="text" id="num2" placeholder="Enter second number">
+    
+    <button onclick="calculate('add')">Add</button>
+    <button onclick="calculate('subtract')">Subtract</button>
+    <button onclick="calculate('multiply')">Multiply</button>
+    <button onclick="calculate('divide')">Divide</button>
+    
+    
+    <div id="result"></div>
+
+    <script>
+        function calculate(operation) {
+            var num1 = parseInt(document.getElementById("num1").value, 10);
+            var num2 = parseInt(document.getElementById("num2").value, 10);
+
+            if (!isNaN(num1) && !isNaN(num2)) {
+                var result;
+                switch (operation) {
+                    case 'add':
+                        result = num1 + num2;
+                        break;
+                    case 'subtract':
+                        result = num1 - num2;
+                        break;
+                    case 'multiply':
+                        result = num1 * num2;
+                        break;
+                    case 'divide':
+                        
+                            result = num1 / num2;
+                        break;
+                    default:
+                        document.getElementById("result").textContent = "Invalid operation.";
+                        return;
+                }
+                document.getElementById("result").textContent = "Result: " + result;
+            } else {
+                document.getElementById("result").textContent = "Please enter valid numbers.";
+            }
+        }
+    </script>
+</body>
+</html>
